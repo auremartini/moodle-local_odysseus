@@ -1,0 +1,22 @@
+<div data-region="odysseus-activity-list" class="">
+	<table id="odysseus-activity-list" class="generaltable">
+		<tr>
+	    	<th class="cell c0">{{#str}} teachers, local_odysseus {{/str}}</th>
+	    	<th class="cell c1">{{#str}} destination, local_odysseus {{/str}}</th>
+    		<th class="cell c2">{{#str}} activity_type, local_odysseus {{/str}}</th>
+		    <th class="cell c3">{{#str}} date, local_odysseus {{/str}}</th>
+	    	<th class="cell c4">{{#str}} altdate, local_odysseus {{/str}}</th>
+		</tr>
+		{{#records}}
+			<tr>
+		    	<td class="cell c0">{{#users}}
+                    {{#teacher}}{{#admin}}<b>{{/admin}}{{^editor}}<i>{{/editor}}{{lastname}}&nbsp;{{firstname}}{{^editor}}</i>{{/editor}}{{#admin}}</b>{{/admin}}<br>{{/teacher}}
+                {{/users}}</td>
+		    	<td class="cell c1">{{destination}}</td>
+    			<td class="cell c2">{{activity_type_text}}</td>
+    			<td class="cell c3">{{date_start}}{{#date_end}} - {{date_end}}{{/date_end}}</td>
+    			<td class="cell c4">{{altdate_start}}{{#altdate_end}} - {{altdate_end}}{{/altdate_end}}</td>
+			</tr>
+		{{/records}}
+	</table>	
+</div>

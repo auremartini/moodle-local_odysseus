@@ -1,28 +1,34 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * Local plugin "Totem: show teacher's attendences and event totem" - Version file
- *
- * @package    local_odysseus
- * @copyright  2024, Aureliano Martini (Liceo cantonale di Lugano 3) <aureliano.martini@edu.ti.ch>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+// Standard GPL and phpdocs
 
 //Plugin text
 $string['pluginname'] = 'Odysseus';
-$string['plugin_navbar_lavel'] = 'School excursions';
-$string['plugin_page_title'] = 'School excursions';
+$string['plugin_navbar_lavel'] = 'School activities';
+$string['plugin_page_title'] = 'School activities';
+
+$string['info'] = 'General infos';
+$string['users'] = 'Participants';
+$string['agenda'] = 'Agenda';
+$string['estimate'] = 'Estimate';
+$string['msg'] = 'Messages';
+$string['edit'] = 'Edit';
+$string['submit'] = 'Submit';
+
+$string['teachers'] = 'Teachers';
+$string['destination'] = 'Destination';
+$string['date'] = 'Date';
+$string['altdate'] = 'Alternative date';
+$string['no_date'] = 'No scheduled date';
+$string['activity_type'] = 'Activity type';
+$string['transport'] = 'Transport';
+$string['goals'] = 'Goals';
+$string['notes'] = 'Notes';
+
+//MESSAGES
+$string['noactivity'] = 'No scheduled activities';
+
+//CAPABILITY
+$string['odysseus:fullviewownactivity'] = 'Displays information about the activities user participate in';
+$string['odysseus:fullviewallactivity'] = 'Displays information about the all the activities';
+$string['odysseus:viewownactivity'] = 'Displays synthetic information about the activities user participate in';
+$string['odysseus:viewallactivity'] = 'Displays synthetic information about the all the activities';

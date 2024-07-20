@@ -1,0 +1,84 @@
+<div class="secondary-navigation d-print-none">
+  <nav class="moremenu navigation observed">
+    <table><tr><td width="100%">
+    <ul id="moremenu-{{uuid}}-nav-tabs" role="tablist" class="nav more-nav nav-tabs">
+      <li data-key="activity_general" class="nav-item" role="none" data-forceintomoremenu=false">
+        <a role="tab" class="nav-link active active_tree_node" href="#linkinfo" data-toggle="tab" data-text="{{#str}} info, local_odysseus {{/str}}" aria-selected="true">{{#str}} info, local_odysseus {{/str}}</a>
+      </li>
+      <li data-key="activity_agenda" class="nav-item" role="none" data-forceintomoremenu=false">
+        <a role="tab" class="nav-link" href="#linkagenda" data-toggle="tab" data-text="{{#str}} agenda, local_odysseus {{/str}}" aria-selected="true">{{#str}} agenda, local_odysseus {{/str}}</a>
+      </li>
+      <li data-key="activity_estimate" class="nav-item" role="none" data-forceintomoremenu=false">
+        <a role="tab" class="nav-link" href="#linkestimate" data-toggle="tab" data-text="{{#str}} estimate, local_odysseus {{/str}}" aria-selected="true">{{#str}} estimate, local_odysseus {{/str}}</a>
+      </li>
+      <li data-key="activity_users" class="nav-item" role="none" data-forceintomoremenu=false">
+        <a role="tab" class="nav-link" href="#linkusers" data-toggle="tab" data-text="{{#str}} users, local_odysseus {{/str}}" aria-selected="true">{{#str}} users, local_odysseus {{/str}}</a>
+      </li>
+      <li data-key="activity_msg" class="nav-item" role="none" data-forceintomoremenu=false">
+        <a role="tab" class="nav-link" href="#linkmsg" data-toggle="tab" data-text="{{#str}} msg, local_odysseus {{/str}}" aria-selected="true">{{#str}} msg, local_odysseus {{/str}}</a>
+      </li>
+    </td><td>
+      <form action="" method="post">
+        <button class="btn btn-secondary btn-lg" type="submit">{{#str}} edit, local_odysseus {{/str}}</button>
+      </form>
+    </td><td>
+      <form action="" method="post">
+        <button class="btn btn-primary btn-lg" type="submit">{{#str}} submit, local_odysseus {{/str}}</button>
+      </form>
+    </td></tr></table>
+    </ul>
+  </nav>
+</div>
+<div id="page-content" class="pb-3 d-print-block">
+<div id="region-main-box">
+  <section id="region-main" aria-label="Content">
+    <span class="notifications" id="user-notifications"></span>
+    <div role="main">
+      <span id="maincontent"></span>
+      <div class="tab-content mt-3">
+        <div class="tab-pane active" id="linkinfo">
+          <table id="local-odysseus-activity-info" class="generaltable">
+            <tr>
+              <td class="cell c0">{{#str}} teachers, local_odysseus {{/str}}</td>
+              <td class="cell c1" width="90%">{{#users}}
+                {{#teacher}}{{#admin}}<b>{{/admin}}{{^editor}}<i>{{/editor}}{{lastname}}&nbsp;{{firstname}}{{^editor}}</i>{{/editor}}{{#admin}}</b>{{/admin}}<br>{{/teacher}}
+              {{/users}}</td>
+            </tr>
+            <tr>
+              <td class="cell c0">{{#str}} destination, local_odysseus {{/str}}</td>
+              <td class="cell c1" width="90%">{{destination}}</td>
+            </tr>
+            <tr>
+              <td class="cell c0">{{#str}} activity_type, local_odysseus {{/str}}</td>
+              <td class="cell c1">{{activity_type_text}}</td>
+            </tr>
+            <tr>
+              <td class="cell c0">{{#str}} date, local_odysseus {{/str}}</td>
+              <td class="cell c1">{{date_start}}{{#date_end}} - {{date_end}}{{/date_end}}</td>
+            </tr>
+            <tr>
+              <td class="cell c0">{{#str}} altdate, local_odysseus {{/str}}</td>
+              <td class="cell c1">{{altdate_start}}{{#altdate_end}} - {{altdate_end}}{{/altdate_end}}</td>
+            </tr>
+            <tr>
+              <td class="cell c0">{{#str}} transport, local_odysseus {{/str}}</td>
+              <td class="cell c1">{{transport_text}}</td>
+            </tr>
+            <tr>
+              <td class="cell c0">{{#str}} goals, local_odysseus {{/str}}</td>
+              <td class="cell c1">{{{goals}}}</td>
+            </tr>
+            <tr>
+              <td class="cell c0">{{#str}} notes, local_odysseus {{/str}}</td>
+              <td class="cell c1">{{{notes}}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="tab-pane" id="linkusers">TAB2</div>
+        <div class="tab-pane" id="linkagenda">TAB3</div>
+        <div class="tab-pane" id="linkestimate">TAB4</div>
+        <div class="tab-pane" id="linkmsg">TAB5</div>
+      </div>
+    </div>
+  </section>
+</div>

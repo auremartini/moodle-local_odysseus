@@ -1,32 +1,13 @@
 <?php
-
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * Local plugin "Totem: show teacher's attendences and event totem" - Version file
- *
- * @package    local_odysseus
- * @copyright  2024, Aureliano Martini (Liceo cantonale di Lugano 3) <aureliano.martini@edu.ti.ch>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
+// Standard GPL and phpdocs
 
 require_once(__DIR__ . '/../../config.php');
 
-global $DB, $OUTPUT, $PAGE;
+global $DB, $PAGE, $USER;
+
+//SET RENDERER
+$PAGE->set_context(context_system::instance());
+$output = $PAGE->get_renderer('local_odysseus');
 
 // SET PAGE ELEMENTS (HEADER)
 $PAGE->set_url(new moodle_url('/local/odysseus/index.php'));
@@ -36,20 +17,43 @@ $url = new moodle_url('/local/totem/index.php', array());
 $node = $PAGE->settingsnav->add(get_string('plugin_navbar_lavel', 'local_odysseus'), $url);
 $node->make_active();
 
-// PRINT CONTENT TO PAGE
+// PRINT HEADER
 $context = context_system::instance();
-echo $OUTPUT->header();
+echo $output->header();
 
 $uuid = "";
 
-//if ($uuid == "token aggiornamento / nuova uscita") {
+// PRINT CONTENT
+/**
+ * WALKTROUGHT PER MOSTRARE UNA ATTIVITÀ
+ */
+$uuid = '197135f9-8a3b-459a-86e1-e76ece52ba65';
 
-//} else ($uuid == "token conferma") {
+if ($uuid != '') {
+    //if ($uuid è token di una attività)
+    $renderable = new \local_odysseus\data\activity(array(
+        'uuid' => '197135f9-8a3b-459a-86e1-e76ece52ba65'
+    ));
+    echo $output->render_activity_info($renderable);
 
-//}
+    //} else ($uuid == "token conferma utente") {
 
-//if ($utente_connesso) {
-    //visualizza tabella uscite
-//}
+    //}
+}
 
-echo $OUTPUT->footer();
+if (has_capability('local/odysseus:fullviewownactivity', $context) || has_capability('local/odysseus:viewownactivity', $context)) {
+    echo "<h3>Le mie attività</h3>";
+    $renderable = new \local_odysseus\data\activity(array(
+        'user_id' => $USER->id
+    ));
+    echo $output->render_activity_list($renderable);
+}
+
+if (has_capability('local/odysseus:fullviewallactivity', $context) || has_capability('local/odysseus:viewallactivity', $context)) {
+    echo "<h3>Tutte le attività</h3>";
+    $renderable = new \local_odysseus\data\activity(array());
+    echo $output->render_activity_list($renderable);
+}
+
+// PRINT FOOTER
+echo $output->footer();

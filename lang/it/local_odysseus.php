@@ -1,28 +1,34 @@
 <?php
-// This file is part of Moodle - http://moodle.org/
-//
-// Moodle is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// Moodle is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License
-// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * Local plugin "Totem: show teacher's attendences and event totem" - Version file
- *
- * @package    local_odysseus
- * @copyright  2024, Aureliano Martini (Liceo cantonale di Lugano 3) <aureliano.martini@edu.ti.ch>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
+// Standard GPL and phpdocs
 
 //Plugin text
 $string['pluginname'] = 'Odysseus';
-$string['plugin_navbar_lavel'] = 'Gestione uscite scolastiche';
-$string['plugin_page_title'] = 'Gestione uscite scolastiche';
+$string['plugin_navbar_lavel'] = 'Attività didattiche particolari';
+$string['plugin_page_title'] = 'Attività didattiche particolari';
+
+$string['info'] = 'Informazioni generali';
+$string['users'] = 'Partecipanti';
+$string['agenda'] = 'Programma';
+$string['estimate'] = 'Preventivo';
+$string['msg'] = 'Messaggi';
+$string['edit'] = 'Modifica';
+$string['submit'] = 'Inoltra';
+
+$string['teachers'] = 'Docenti';
+$string['destination'] = 'Meta';
+$string['date'] = 'Data';
+$string['altdate'] = 'Data alternativa';
+$string['no_date'] = 'Nessuna data prevista';
+$string['activity_type'] = 'Tipo di attività';
+$string['transport'] = 'Mezzi di trasporto';
+$string['goals'] = 'Obiettivi didattici';
+$string['notes'] = 'Osservazioni';
+
+//MESSAGES
+$string['noactivity'] = 'Nessuna attività prorammata';
+
+//CAPABILITY
+$string['odysseus:fullviewownactivity'] = 'Visualizza informazioni complete sulle attività a cui l\'utente partecipa';
+$string['odysseus:fullviewallactivity'] = 'Visualizza informazioni complete su tutte le attività';
+$string['odysseus:viewownactivity'] = 'Visualizza informazioni sommarie complete sulle attività a cui l\'utente partecipa';
+$string['odysseus:viewallactivity'] = 'Visualizza informazioni sommarie su tutte le attività';
